@@ -10,7 +10,7 @@ Please report bugs using the issue tracker at github:
 How to Upgrade
 ===============
 
-Please notice new version janeta path is $GOPATH/src/github.com/janeta/janeta if you install janeta from source code.  
+Please notice new version janeta path is $GOPATH/src/github.com/janotchain/janeta if you install janeta from source code.  
 If you are running an older version, shut it down. Wait until it has quited completely, and then run the new version janeta.
 You can operate according to the user manual.[(janeta User Manual)](https://janeta.io/wp-content/themes/freddo/images/wallet/janetaUsermanualV1.0_en.pdf)
 

@@ -40,13 +40,13 @@ $ go env GOROOT GOPATH
 - Get the source code
 
 ``` bash
-$ git clone https://github.com/janeta/janeta.git $GOPATH/src/github.com/janeta/janeta
+$ git clone https://github.com/janotchain/janeta.git $GOPATH/src/github.com/janotchain/janeta
 ```
 
 - Build source code
 
 ``` bash
-$ cd $GOPATH/src/github.com/janeta/janeta
+$ cd $GOPATH/src/github.com/janotchain/janeta
 $ make janetad    # build janetad
 $ make janetacli  # build janetacli
 ```

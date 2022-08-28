@@ -1,4 +1,4 @@
-module github.com/janeta/janeta
+module github.com/janotchain/janeta
 
 go 1.16
 
