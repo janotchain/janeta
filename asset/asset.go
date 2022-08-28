@@ -38,15 +38,15 @@ var (
 
 func initNativeAsset() {
 	signer := &signers.Signer{Type: "internal"}
-	alias := consensus.BTMAlias
+	alias := consensus.JTAAlias
 
-	definitionBytes, _ := serializeAssetDef(consensus.BTMDefinitionMap)
+	definitionBytes, _ := serializeAssetDef(consensus.JTADefinitionMap)
 	DefaultNativeAsset = &Asset{
 		Signer:            signer,
 		AssetID:           *consensus.JTAAssetID,
 		Alias:             &alias,
 		VMVersion:         1,
-		DefinitionMap:     consensus.BTMDefinitionMap,
+		DefinitionMap:     consensus.JTADefinitionMap,
 		RawDefinitionByte: definitionBytes,
 	}
 }
@@ -73,7 +73,7 @@ var (
 	ErrSerializing    = errors.New("serializing asset definition")
 	ErrMarshalAsset   = errors.New("failed marshal asset")
 	ErrFindAsset      = errors.New("fail to find asset")
-	ErrInternalAsset  = errors.New("btm has been defined as the internal asset")
+	ErrInternalAsset  = errors.New("jta has been defined as the internal asset")
 	ErrNullAlias      = errors.New("null asset alias")
 )
 
@@ -135,7 +135,7 @@ func (reg *Registry) Define(xpubs []chainkd.XPub, quorum int, definition map[str
 		return nil, errors.Wrap(ErrNullAlias)
 	}
 
-	if alias == consensus.BTMAlias {
+	if alias == consensus.JTAAlias {
 		return nil, ErrInternalAsset
 	}
 
@@ -258,9 +258,9 @@ func (reg *Registry) FindByAlias(alias string) (*Asset, error) {
 
 //GetAliasByID return asset alias string by AssetID string
 func (reg *Registry) GetAliasByID(id string) string {
-	//btm
+	//jta
 	if id == consensus.JTAAssetID.String() {
-		return consensus.BTMAlias
+		return consensus.JTAAlias
 	}
 
 	assetID := &bc.AssetID{}
@@ -379,7 +379,7 @@ func (reg *Registry) UpdateAssetAlias(id, newAlias string) error {
 	oldAlias := reg.GetAliasByID(id)
 	newAlias = strings.ToUpper(strings.TrimSpace(newAlias))
 
-	if oldAlias == consensus.BTMAlias || newAlias == consensus.BTMAlias {
+	if oldAlias == consensus.JTAAlias || newAlias == consensus.JTAAlias {
 		return ErrInternalAsset
 	}
 

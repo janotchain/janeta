@@ -48,7 +48,7 @@ func TestValidateUglyTx(t *testing.T) {
 	}{
 		{
 			category: "fee insufficient",
-			desc:     "sum of btm output greater than btm input",
+			desc:     "sum of jta output greater than jta input",
 			insts:    []*signingInst{singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -65,7 +65,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "fee insufficient",
-			desc:     "sum of btm output equals to input btm",
+			desc:     "sum of jta output equals to input jta",
 			insts:    []*signingInst{singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -82,7 +82,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "fee insufficient",
-			desc:     "sum of btm input greater than btm output, but still insufficient",
+			desc:     "sum of jta input greater than jta output, but still insufficient",
 			insts:    []*signingInst{singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -99,7 +99,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "fee insufficient",
-			desc:     "no btm input",
+			desc:     "no jta input",
 			insts:    []*signingInst{singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -116,7 +116,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "input output unbalance",
-			desc:     "only has btm input, no output",
+			desc:     "only has jta input, no output",
 			insts:    []*signingInst{singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -439,7 +439,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "input output unbalance",
-			desc:     "no btm input",
+			desc:     "no jta input",
 			txData: types.TxData{
 				Version: 1,
 				Inputs:  []*types.TxInput{},
@@ -451,7 +451,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "overflow",
-			desc:     "spend btm input overflow",
+			desc:     "spend jta input overflow",
 			insts:    []*signingInst{singleSignInst, singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -471,7 +471,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "overflow",
-			desc:     "spend non btm input overflow",
+			desc:     "spend non jta input overflow",
 			insts:    []*signingInst{singleSignInst, singleSignInst, singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -495,7 +495,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "overflow",
-			desc:     "issuance non btm input overflow",
+			desc:     "issuance non jta input overflow",
 			insts:    []*signingInst{singleSignInst, singleSignInst, singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -529,7 +529,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "overflow",
-			desc:     "sum of spend and issuance non btm input overflow",
+			desc:     "sum of spend and issuance non jta input overflow",
 			insts:    []*signingInst{singleSignInst, singleSignInst, singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -557,7 +557,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "overflow",
-			desc:     "spend btm output overflow",
+			desc:     "spend jta output overflow",
 			insts:    []*signingInst{singleSignInst, singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -574,7 +574,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "overflow",
-			desc:     "retire btm output overflow",
+			desc:     "retire jta output overflow",
 			insts:    []*signingInst{singleSignInst, singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -591,7 +591,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "overflow",
-			desc:     "non btm output overflow",
+			desc:     "non jta output overflow",
 			insts:    []*signingInst{singleSignInst, singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -612,7 +612,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "overflow",
-			desc:     "retire non btm output overflow",
+			desc:     "retire non jta output overflow",
 			insts:    []*signingInst{singleSignInst, singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -652,7 +652,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "verify signature fail",
-			desc:     "btm single sign",
+			desc:     "jta single sign",
 			insts:    []*signingInst{singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -669,7 +669,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "verify signature fail",
-			desc:     "btm multi sign",
+			desc:     "jta multi sign",
 			insts:    []*signingInst{multiSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -686,7 +686,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "verify signature fail",
-			desc:     "spend non btm single sign",
+			desc:     "spend non jta single sign",
 			insts:    []*signingInst{singleSignInst, singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -707,7 +707,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "verify signature fail",
-			desc:     "spend non btm multi sign",
+			desc:     "spend non jta multi sign",
 			insts:    []*signingInst{singleSignInst, multiSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -728,7 +728,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "verify signature fail",
-			desc:     "issuance non btm single sign",
+			desc:     "issuance non jta single sign",
 			insts:    []*signingInst{singleSignInst, multiSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -754,7 +754,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "verify signature fail",
-			desc:     "issuance non btm multi sign",
+			desc:     "issuance non jta multi sign",
 			insts:    []*signingInst{singleSignInst, multiSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -780,7 +780,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "double spend",
-			desc:     "btm asset double spend",
+			desc:     "jta asset double spend",
 			insts:    []*signingInst{singleSignInst, singleSignInst},
 			txData: types.TxData{
 				Version: 1,
@@ -800,7 +800,7 @@ func TestValidateUglyTx(t *testing.T) {
 		},
 		{
 			category: "double spend",
-			desc:     "non btm asset double spend",
+			desc:     "non jta asset double spend",
 			insts:    []*signingInst{singleSignInst, singleSignInst, singleSignInst},
 			txData: types.TxData{
 				Version: 1,

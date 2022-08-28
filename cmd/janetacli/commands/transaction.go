@@ -22,7 +22,7 @@ func init() {
 	buildTransactionCmd.PersistentFlags().StringVarP(&address, "address", "a", "", "address of receiver when type is address")
 	buildTransactionCmd.PersistentFlags().StringVarP(&program, "program", "p", "", "program of receiver when type is program")
 	buildTransactionCmd.PersistentFlags().StringVarP(&arbitrary, "arbitrary", "v", "", "additional arbitrary data when type is retire")
-	buildTransactionCmd.PersistentFlags().StringVarP(&btmGas, "gas", "g", "20000000", "gas of this transaction")
+	buildTransactionCmd.PersistentFlags().StringVarP(&jtaGas, "gas", "g", "20000000", "gas of this transaction")
 	buildTransactionCmd.PersistentFlags().StringVarP(&contractName, "contract-name", "c", "",
 		"name of template contract, currently supported: 'LockWithPublicKey', 'LockWithMultiSig', 'LockWithPublicKeyHash',"+
 			"\n\t\t\t       'RevealPreimage', 'TradeOffer', 'Escrow', 'CallOption', 'LoanCollateral'")
@@ -40,7 +40,7 @@ func init() {
 
 var (
 	buildType       = ""
-	btmGas          = ""
+	jtaGas          = ""
 	receiverProgram = ""
 	address         = ""
 	password        = ""
@@ -129,28 +129,28 @@ var buildTransactionCmd = &cobra.Command{
 		switch buildType {
 		case "issue":
 			if alias {
-				buildReqStr = fmt.Sprintf(buildIssueReqFmtByAlias, btmGas, accountInfo, assetInfo, amount, assetInfo, amount, address)
+				buildReqStr = fmt.Sprintf(buildIssueReqFmtByAlias, jtaGas, accountInfo, assetInfo, amount, assetInfo, amount, address)
 				break
 			}
-			buildReqStr = fmt.Sprintf(buildIssueReqFmt, btmGas, accountInfo, assetInfo, amount, assetInfo, amount, address)
+			buildReqStr = fmt.Sprintf(buildIssueReqFmt, jtaGas, accountInfo, assetInfo, amount, assetInfo, amount, address)
 		case "spend":
 			if alias {
-				buildReqStr = fmt.Sprintf(buildSpendReqFmtByAlias, btmGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, receiverProgram)
+				buildReqStr = fmt.Sprintf(buildSpendReqFmtByAlias, jtaGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, receiverProgram)
 				break
 			}
-			buildReqStr = fmt.Sprintf(buildSpendReqFmt, btmGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, receiverProgram)
+			buildReqStr = fmt.Sprintf(buildSpendReqFmt, jtaGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, receiverProgram)
 		case "retire":
 			if alias {
-				buildReqStr = fmt.Sprintf(buildRetireReqFmtByAlias, btmGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, arbitrary)
+				buildReqStr = fmt.Sprintf(buildRetireReqFmtByAlias, jtaGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, arbitrary)
 				break
 			}
-			buildReqStr = fmt.Sprintf(buildRetireReqFmt, btmGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, arbitrary)
+			buildReqStr = fmt.Sprintf(buildRetireReqFmt, jtaGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, arbitrary)
 		case "address":
 			if alias {
-				buildReqStr = fmt.Sprintf(buildControlAddressReqFmtByAlias, btmGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, address)
+				buildReqStr = fmt.Sprintf(buildControlAddressReqFmtByAlias, jtaGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, address)
 				break
 			}
-			buildReqStr = fmt.Sprintf(buildControlAddressReqFmt, btmGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, address)
+			buildReqStr = fmt.Sprintf(buildControlAddressReqFmt, jtaGas, accountInfo, assetInfo, amount, accountInfo, assetInfo, amount, address)
 		case "unlock":
 			var err error
 			usage := "Usage:\n  janetacli build-transaction <accountID|alias> <assetID|alias> <amount> <outputID> -c <contractName>"
@@ -166,7 +166,7 @@ var buildTransactionCmd = &cobra.Command{
 				amount:      amount,
 				alias:       alias,
 				program:     program,
-				btmGas:      btmGas,
+				jtaGas:      jtaGas,
 				outputID:    args[baseCount-1],
 			}
 			specArgs := args[baseCount:]

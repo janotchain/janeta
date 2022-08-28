@@ -214,7 +214,7 @@ func TestApplyBlock(t *testing.T) {
 			err: false,
 		},
 		{
-			// non-btm asset spent input will be spent
+			// non-jta asset spent input will be spent
 			block: &bc.Block{
 				BlockHeader: &bc.BlockHeader{},
 				Transactions: []*bc.Tx{
@@ -245,7 +245,7 @@ func TestApplyBlock(t *testing.T) {
 			err: false,
 		},
 		{
-			// apply gas only tx, non-btm asset spent output will not be store
+			// apply gas only tx, non-jta asset spent output will not be store
 			block: &bc.Block{
 				BlockHeader: &bc.BlockHeader{},
 				Transactions: []*bc.Tx{

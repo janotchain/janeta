@@ -168,7 +168,7 @@ func (a *registerAction) Build(ctx context.Context, b *TemplateBuilder) error {
 		return errors.New("register contract action asset must be JTA")
 	}
 
-	if a.Amount < consensus.BCRPRequiredBTMAmount {
+	if a.Amount < consensus.BCRPRequiredJTAAmount {
 		return errors.New("less than BCRP required JTA amount")
 	}
 

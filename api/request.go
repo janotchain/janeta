@@ -43,7 +43,7 @@ func (a *API) completeMissingAssetID(m map[string]interface{}, index int) error 
 	if id == "" && alias != "" {
 		alias = strings.ToUpper(alias)
 		switch alias {
-		case consensus.BTMAlias:
+		case consensus.JTAAlias:
 			m["asset_id"] = consensus.JTAAssetID.String()
 		default:
 			asset, err := a.wallet.AssetReg.FindByAlias(alias)

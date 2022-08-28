@@ -40,7 +40,7 @@ func (c *Chain) ValidateTx(tx *types.Tx) (bool, error) {
 		return false, err
 	}
 
-	return c.txPool.ProcessTransaction(tx, bh.Height, gasStatus.BTMValue)
+	return c.txPool.ProcessTransaction(tx, bh.Height, gasStatus.JTAValue)
 }
 
 //ProgramConverter convert program. Only for BCRP now

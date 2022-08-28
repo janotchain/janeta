@@ -96,7 +96,7 @@ func (s *SettlementReward) Settlement() error {
 	}
 
 	// send transactions
-	return s.node.BatchSendBTM(s.rewardCfg.AccountID, s.rewardCfg.Password, s.rewards, data)
+	return s.node.BatchSendJTA(s.rewardCfg.AccountID, s.rewardCfg.Password, s.rewards, data)
 }
 
 func (s *SettlementReward) getCoinbaseReward(height uint64) (uint64, error) {

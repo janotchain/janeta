@@ -62,9 +62,9 @@ func (w *Wallet) getExternalDefinition(assetID *bc.AssetID) json.RawMessage {
 }
 
 func (w *Wallet) getAliasDefinition(assetID bc.AssetID) (string, json.RawMessage) {
-	//btm
+	//jta
 	if assetID.String() == consensus.JTAAssetID.String() {
-		alias := consensus.BTMAlias
+		alias := consensus.JTAAlias
 		definition := []byte(asset.DefaultNativeAsset.RawDefinitionByte)
 
 		return alias, definition

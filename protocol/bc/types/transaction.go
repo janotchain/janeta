@@ -99,21 +99,21 @@ func (tx *TxData) UnmarshalText(p []byte) error {
 }
 
 func (tx *TxData) Fee() uint64 {
-	inputBTM, outputBTM := uint64(0), uint64(0)
+	inputJTA, outputJTA := uint64(0), uint64(0)
 	for _, input := range tx.Inputs {
 		if input.AssetID() == *consensus.JTAAssetID {
-			inputBTM += input.Amount()
+			inputJTA += input.Amount()
 		}
 	}
 
 	for _, output := range tx.Outputs {
 		if *output.AssetId == *consensus.JTAAssetID {
-			outputBTM += output.Amount
+			outputJTA += output.Amount
 		}
 	}
 
-	if inputBTM > outputBTM {
-		return inputBTM - outputBTM
+	if inputJTA > outputJTA {
+		return inputJTA - outputJTA
 	}
 
 	return 0

@@ -74,7 +74,7 @@ func Build(ctx context.Context, tx *types.TxData, actions []Action, maxTime time
 		return nil, err
 	}
 
-	/*TODO: This part is use for check the balance, but now we are using btm as gas fee
+	/*TODO: This part is use for check the balance, but now we are using jta as gas fee
 	the rule need to be rewrite when we have time
 	err = checkBlankCheck(tx)
 	if err != nil {

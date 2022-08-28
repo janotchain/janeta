@@ -62,8 +62,8 @@ func (r *RetireAction) MarshalJSON() ([]byte, error) {
 	})
 }
 
-func (n *Node) BatchSendBTM(accountID, password string, outputs map[string]uint64, memo []byte) error {
-	totalBTM := uint64(10000000)
+func (n *Node) BatchSendJTA(accountID, password string, outputs map[string]uint64, memo []byte) error {
+	totalJTA := uint64(10000000)
 	actions := []interface{}{}
 	if len(memo) > 0 {
 		actions = append(actions, &RetireAction{
@@ -77,12 +77,12 @@ func (n *Node) BatchSendBTM(accountID, password string, outputs map[string]uint6
 			Address:     address,
 			AssetAmount: &bc.AssetAmount{AssetId: consensus.JTAAssetID, Amount: amount},
 		})
-		totalBTM += amount
+		totalJTA += amount
 	}
 
 	actions = append(actions, &SpendAccountAction{
 		AccountID:   accountID,
-		AssetAmount: &bc.AssetAmount{AssetId: consensus.JTAAssetID, Amount: totalBTM},
+		AssetAmount: &bc.AssetAmount{AssetId: consensus.JTAAssetID, Amount: totalJTA},
 	})
 
 	tpls, err := n.buildTx(actions)

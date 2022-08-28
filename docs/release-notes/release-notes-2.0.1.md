@@ -38,7 +38,7 @@ __janeta Node__
 + [`PR #1921`](https://github.com/janotchain/janeta/pull/1921/files)
     - Use 2d data to store butxo state.
 + [`PR #1930`](https://github.com/janotchain/janeta/pull/1930/files)
-    - support executing state data in btm virtual machine.
+    - support executing state data in jta virtual machine.
 + [`PR #1935`](https://github.com/janotchain/janeta/pull/1868/files) 
     - In the new consensus algorithm, nodes take turns to generate blocks every 6 seconds.
 

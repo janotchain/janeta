@@ -10,7 +10,7 @@
   ],
   "transactions": [
     {
-      "describe": "normal single sign btm tx",
+      "describe": "normal single sign jta tx",
       "passwords": ["alice"],
       "inputs": [
         {"type": "spend_account", "name": "alice", "amount": 100000000000, "asset": "JTA"}
@@ -23,7 +23,7 @@
       "tx_fee": 60000000000
     },
     {
-      "describe": "single sign btm tx, out of gas",
+      "describe": "single sign jta tx, out of gas",
       "passwords": ["alice"],
       "inputs": [
         {"type": "spend_account", "name": "alice", "amount": 100000000000, "asset": "JTA"}
@@ -35,7 +35,7 @@
       "valid": false
     },
     {
-      "describe": "normal multi utxo btm tx",
+      "describe": "normal multi utxo jta tx",
       "passwords": ["alice", "bob"],
       "inputs": [
         {"type": "spend_account", "name": "alice", "amount": 100000000000, "asset": "JTA"},
@@ -158,7 +158,7 @@
       "valid": false
     },
     {
-      "describe": "multi utxo btm tx, wrong sig",
+      "describe": "multi utxo jta tx, wrong sig",
       "passwords": ["alice"],
       "inputs": [
         {"type": "spend_account", "name": "alice", "amount": 100000000000, "asset": "JTA"},
@@ -172,7 +172,7 @@
       "valid": false
     },
     {
-      "describe": "multi utxo btm tx, output large than input",
+      "describe": "multi utxo jta tx, output large than input",
       "passwords": ["alice", "bob"],
       "inputs": [
         {"type": "spend_account", "name": "alice", "amount": 100000000000, "asset": "JTA"},

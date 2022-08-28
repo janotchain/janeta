@@ -87,8 +87,8 @@ func (cfg *TxTestConfig) Run() error {
 			continue
 		}
 
-		if result && t.TxFee != status.BTMValue {
-			return fmt.Errorf("gas used dismatch, expected: %d, have: %d", t.TxFee, status.BTMValue)
+		if result && t.TxFee != status.JTAValue {
+			return fmt.Errorf("gas used dismatch, expected: %d, have: %d", t.TxFee, status.JTAValue)
 		}
 	}
 	return nil

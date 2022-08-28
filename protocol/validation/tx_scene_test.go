@@ -18,7 +18,7 @@ func TestValidateTx(t *testing.T) {
 		err    error
 	}{
 		{
-			desc: "single utxo, single sign, non asset, btm stanard transaction",
+			desc: "single utxo, single sign, non asset, jta stanard transaction",
 			txData: &types.TxData{
 				Version:        1,
 				SerializedSize: 331,
@@ -38,7 +38,7 @@ func TestValidateTx(t *testing.T) {
 			err: nil,
 		},
 		{
-			desc: "multi utxo, single sign, non asset, btm stanard transaction",
+			desc: "multi utxo, single sign, non asset, jta stanard transaction",
 			txData: &types.TxData{
 				Version:        1,
 				SerializedSize: 595,
@@ -67,7 +67,7 @@ func TestValidateTx(t *testing.T) {
 			err: nil,
 		},
 		{
-			desc: "multi utxo, single sign, non asset, btm stanard transaction, insufficient gas",
+			desc: "multi utxo, single sign, non asset, jta stanard transaction, insufficient gas",
 			txData: &types.TxData{
 				Version:        1,
 				SerializedSize: 595,
@@ -96,7 +96,7 @@ func TestValidateTx(t *testing.T) {
 			err: vm.ErrRunLimitExceeded,
 		},
 		{
-			desc: "single utxo, retire, non asset, btm stanard transaction",
+			desc: "single utxo, retire, non asset, jta stanard transaction",
 			txData: &types.TxData{
 				Version:        1,
 				SerializedSize: 309,
@@ -117,7 +117,7 @@ func TestValidateTx(t *testing.T) {
 			err: nil,
 		},
 		{
-			desc: "single utxo, single sign, issuance, spend, retire, btm stanard transaction, gas sufficient",
+			desc: "single utxo, single sign, issuance, spend, retire, jta stanard transaction, gas sufficient",
 			txData: &types.TxData{
 				Version:        1,
 				SerializedSize: 601,
@@ -147,7 +147,7 @@ func TestValidateTx(t *testing.T) {
 			err: nil,
 		},
 		{
-			desc: "single utxo, single sign, issuance, spend, retire, btm stanard transaction, gas insufficient",
+			desc: "single utxo, single sign, issuance, spend, retire, jta stanard transaction, gas insufficient",
 			txData: &types.TxData{
 				Version:        1,
 				SerializedSize: 601,
@@ -178,7 +178,7 @@ func TestValidateTx(t *testing.T) {
 			err: vm.ErrRunLimitExceeded,
 		},
 		{
-			desc: "btm stanard transaction check signature is not passed",
+			desc: "jta stanard transaction check signature is not passed",
 			txData: &types.TxData{
 				Version:        1,
 				SerializedSize: 331,
@@ -199,7 +199,7 @@ func TestValidateTx(t *testing.T) {
 			err: vm.ErrFalseVMResult,
 		},
 		{
-			desc: "non btm stanard transaction",
+			desc: "non jta stanard transaction",
 			txData: &types.TxData{
 				Version:        1,
 				SerializedSize: 508,

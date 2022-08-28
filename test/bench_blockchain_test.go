@@ -252,7 +252,7 @@ package test
 //	return out
 //}
 //
-//func CreateTxBuilder(baseUtxo *account.UTXO, btmServiceFlag bool, signer *signers.Signer) (*txbuilder.TemplateBuilder, error) {
+//func CreateTxBuilder(baseUtxo *account.UTXO, jtaServiceFlag bool, signer *signers.Signer) (*txbuilder.TemplateBuilder, error) {
 //	tplBuilder := txbuilder.NewBuilder(time.Now())
 //
 //	// add input
@@ -262,8 +262,8 @@ package test
 //	}
 //	tplBuilder.AddInput(txInput, signInst)
 //
-//	// if the btm is the service charge, didn't need to add the output
-//	if btmServiceFlag {
+//	// if the jta is the service charge, didn't need to add the output
+//	if jtaServiceFlag {
 //		txOutput := AddTxOutput(baseUtxo.AssetID, 100, baseUtxo.ControlProgram)
 //		tplBuilder.AddOutput(txOutput)
 //	}
@@ -285,12 +285,12 @@ package test
 //}
 //
 //func BuildTx(baseUtxo *account.UTXO, otherUtxos []*account.UTXO, signer *signers.Signer) (*txbuilder.Template, error) {
-//	btmServiceFlag := false
+//	jtaServiceFlag := false
 //	if otherUtxos == nil || len(otherUtxos) == 0 {
-//		btmServiceFlag = true
+//		jtaServiceFlag = true
 //	}
 //
-//	tplBuilder, err := CreateTxBuilder(baseUtxo, btmServiceFlag, signer)
+//	tplBuilder, err := CreateTxBuilder(baseUtxo, jtaServiceFlag, signer)
 //	if err != nil {
 //		return nil, err
 //	}

@@ -100,7 +100,7 @@ func init() {
 					},
 				},
 			},
-			// with spend btm transaction
+			// with spend jta transaction
 			{
 				block: &types.Block{
 					BlockHeader: types.BlockHeader{
@@ -143,7 +143,7 @@ func init() {
 					},
 				},
 			},
-			// with btm retire transaction
+			// with jta retire transaction
 			{
 				block: &types.Block{
 					BlockHeader: types.BlockHeader{
@@ -289,7 +289,7 @@ func init() {
 					},
 				},
 			},
-			// with non btm transaction
+			// with non jta transaction
 			{
 				block: &types.Block{
 					BlockHeader: types.BlockHeader{
@@ -343,7 +343,7 @@ func init() {
 					},
 				},
 			},
-			// with non btm transaction but status fail is true
+			// with non jta transaction but status fail is true
 			{
 				block: &types.Block{
 					BlockHeader: types.BlockHeader{

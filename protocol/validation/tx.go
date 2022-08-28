@@ -42,21 +42,21 @@ var (
 
 // GasState record the gas usage status
 type GasState struct {
-	BTMValue   uint64
+	JTAValue   uint64
 	GasLeft    int64
 	GasUsed    int64
 	StorageGas int64
 }
 
-func (g *GasState) setGas(BTMValue int64, txSize int64) error {
-	if BTMValue < 0 {
+func (g *GasState) setGas(JTAValue int64, txSize int64) error {
+	if JTAValue < 0 {
 		return errors.Wrap(ErrGasCalculate, "input JTA is negative")
 	}
 
-	g.BTMValue = uint64(BTMValue)
+	g.JTAValue = uint64(JTAValue)
 
 	var ok bool
-	if g.GasLeft, ok = checked.DivInt64(BTMValue, consensus.VMGasRate); !ok {
+	if g.GasLeft, ok = checked.DivInt64(JTAValue, consensus.VMGasRate); !ok {
 		return errors.Wrap(ErrGasCalculate, "setGas calc gas amount")
 	}
 

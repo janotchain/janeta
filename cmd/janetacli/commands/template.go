@@ -197,7 +197,7 @@ type baseContractArg struct {
 	amount      string
 	alias       bool
 	program     string
-	btmGas      string
+	jtaGas      string
 	outputID    string
 }
 
@@ -425,7 +425,7 @@ func addLockWithPublicKeyArg(baseArg baseContractArg, pubInfo basePubInfo) (buil
 	}
 
 	buildReqStr = fmt.Sprintf(buildReqFmt, baseArg.outputID, pubInfo.rootPub, pubInfo.path1, pubInfo.path2,
-		baseArg.assetInfo, baseArg.amount, baseArg.program, baseArg.btmGas, baseArg.accountInfo)
+		baseArg.assetInfo, baseArg.amount, baseArg.program, baseArg.jtaGas, baseArg.accountInfo)
 
 	return
 }
@@ -438,7 +438,7 @@ func addLockWithMultiSigArg(baseArg baseContractArg, pubInfos [2]basePubInfo) (b
 
 	buildReqStr = fmt.Sprintf(buildReqFmt, baseArg.outputID, pubInfos[0].rootPub, pubInfos[0].path1, pubInfos[0].path2,
 		pubInfos[1].rootPub, pubInfos[1].path1, pubInfos[1].path2,
-		baseArg.assetInfo, baseArg.amount, baseArg.program, baseArg.btmGas, baseArg.accountInfo)
+		baseArg.assetInfo, baseArg.amount, baseArg.program, baseArg.jtaGas, baseArg.accountInfo)
 
 	return
 }
@@ -450,7 +450,7 @@ func addLockWithPublicKeyHashArg(baseArg baseContractArg, pubInfo basePubInfo, p
 	}
 
 	buildReqStr = fmt.Sprintf(buildReqFmt, baseArg.outputID, pubkey, pubInfo.rootPub, pubInfo.path1, pubInfo.path2,
-		baseArg.assetInfo, baseArg.amount, baseArg.program, baseArg.btmGas, baseArg.accountInfo)
+		baseArg.assetInfo, baseArg.amount, baseArg.program, baseArg.jtaGas, baseArg.accountInfo)
 
 	return
 }
@@ -462,7 +462,7 @@ func addRevealPreimageArg(baseArg baseContractArg, value string) (buildReqStr st
 	}
 
 	buildReqStr = fmt.Sprintf(buildReqFmt, baseArg.outputID, value,
-		baseArg.assetInfo, baseArg.amount, baseArg.program, baseArg.btmGas, baseArg.accountInfo)
+		baseArg.assetInfo, baseArg.amount, baseArg.program, baseArg.jtaGas, baseArg.accountInfo)
 
 	return
 }
@@ -483,7 +483,7 @@ func addTradeOfferArg(baseArg baseContractArg, selector string, innerArg *innerC
 		buildReqStr = fmt.Sprintf(buildReqFmt, baseArg.outputID, selector,
 			innerArg.innerAssetInfo, innerArg.innerAmount, innerArg.innerProgram,
 			innerArg.innerAssetInfo, innerArg.innerAmount, innerArg.innerAccountInfo,
-			baseArg.btmGas, baseArg.accountInfo,
+			baseArg.jtaGas, baseArg.accountInfo,
 			baseArg.assetInfo, baseArg.amount, baseArg.program)
 
 	case clauseCancel:
@@ -498,7 +498,7 @@ func addTradeOfferArg(baseArg baseContractArg, selector string, innerArg *innerC
 		}
 
 		buildReqStr = fmt.Sprintf(buildReqFmt, baseArg.outputID, pubInfo.rootPub, pubInfo.path1, pubInfo.path2, selector,
-			baseArg.assetInfo, baseArg.amount, baseArg.program, baseArg.btmGas, baseArg.accountInfo)
+			baseArg.assetInfo, baseArg.amount, baseArg.program, baseArg.jtaGas, baseArg.accountInfo)
 
 	default:
 		err = errors.New("Invalid contract clause selector")
@@ -521,7 +521,7 @@ func addEscrowArg(baseArg baseContractArg, selector string, pubInfo *basePubInfo
 		}
 
 		buildReqStr = fmt.Sprintf(buildReqFmt, baseArg.outputID, pubInfo.rootPub, pubInfo.path1, pubInfo.path2, selector,
-			baseArg.assetInfo, baseArg.amount, controlProgram, baseArg.btmGas, baseArg.accountInfo)
+			baseArg.assetInfo, baseArg.amount, controlProgram, baseArg.jtaGas, baseArg.accountInfo)
 
 	default:
 		err = errors.New("Invalid contract clause selector")
@@ -547,7 +547,7 @@ func addLoanCollateralArg(baseArg baseContractArg, selector string, innerArg *in
 			innerArg.innerAssetInfo, innerArg.innerAmount, innerArg.innerProgram,
 			baseArg.assetInfo, baseArg.amount, controlProgram,
 			innerArg.innerAssetInfo, innerArg.innerAmount, innerArg.innerAccountInfo,
-			baseArg.btmGas, baseArg.accountInfo)
+			baseArg.jtaGas, baseArg.accountInfo)
 
 	case clauseDefault:
 		buildReqFmt := buildCommonRecvReqFmt
@@ -556,7 +556,7 @@ func addLoanCollateralArg(baseArg baseContractArg, selector string, innerArg *in
 		}
 
 		buildReqStr = fmt.Sprintf(buildReqFmt, baseArg.outputID, selector,
-			baseArg.assetInfo, baseArg.amount, controlProgram, baseArg.btmGas, baseArg.accountInfo)
+			baseArg.assetInfo, baseArg.amount, controlProgram, baseArg.jtaGas, baseArg.accountInfo)
 
 	default:
 		err = errors.New("Invalid contract clause selector")
@@ -581,7 +581,7 @@ func addCallOptionArg(baseArg baseContractArg, selector string, innerArg *innerC
 		buildReqStr = fmt.Sprintf(buildReqFmt, baseArg.outputID, pubInfo.rootPub, pubInfo.path1, pubInfo.path2, selector,
 			innerArg.innerAssetInfo, innerArg.innerAmount, innerArg.innerProgram,
 			innerArg.innerAssetInfo, innerArg.innerAmount, innerArg.innerAccountInfo,
-			baseArg.btmGas, baseArg.accountInfo,
+			baseArg.jtaGas, baseArg.accountInfo,
 			baseArg.assetInfo, baseArg.amount, baseArg.program)
 
 	case clauseExpire:
@@ -591,7 +591,7 @@ func addCallOptionArg(baseArg baseContractArg, selector string, innerArg *innerC
 		}
 
 		buildReqStr = fmt.Sprintf(buildReqFmt, baseArg.outputID, selector,
-			baseArg.assetInfo, baseArg.amount, controlProgram, baseArg.btmGas, baseArg.accountInfo)
+			baseArg.assetInfo, baseArg.amount, controlProgram, baseArg.jtaGas, baseArg.accountInfo)
 
 	default:
 		err = errors.New("Invalid contract clause selector")

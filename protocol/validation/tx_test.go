@@ -31,12 +31,12 @@ func TestGasStatus(t *testing.T) {
 			input: &GasState{
 				GasLeft:  10000,
 				GasUsed:  0,
-				BTMValue: 0,
+				JTAValue: 0,
 			},
 			output: &GasState{
 				GasLeft:  10000 / consensus.VMGasRate,
 				GasUsed:  0,
-				BTMValue: 10000,
+				JTAValue: 10000,
 			},
 			f: func(input *GasState) error {
 				return input.setGas(10000, 0)
@@ -47,12 +47,12 @@ func TestGasStatus(t *testing.T) {
 			input: &GasState{
 				GasLeft:  10000,
 				GasUsed:  0,
-				BTMValue: 0,
+				JTAValue: 0,
 			},
 			output: &GasState{
 				GasLeft:  10000,
 				GasUsed:  0,
-				BTMValue: 0,
+				JTAValue: 0,
 			},
 			f: func(input *GasState) error {
 				return input.setGas(-10000, 0)
@@ -63,12 +63,12 @@ func TestGasStatus(t *testing.T) {
 			input: &GasState{
 				GasLeft:  30000,
 				GasUsed:  0,
-				BTMValue: 0,
+				JTAValue: 0,
 			},
 			output: &GasState{
 				GasLeft:  300000,
 				GasUsed:  0,
-				BTMValue: 80000000000,
+				JTAValue: 80000000000,
 			},
 			f: func(input *GasState) error {
 				return input.setGas(80000000000, 0)
@@ -79,12 +79,12 @@ func TestGasStatus(t *testing.T) {
 			input: &GasState{
 				GasLeft:  30000,
 				GasUsed:  0,
-				BTMValue: 0,
+				JTAValue: 0,
 			},
 			output: &GasState{
 				GasLeft:  300000,
 				GasUsed:  0,
-				BTMValue: math.MaxInt64,
+				JTAValue: math.MaxInt64,
 			},
 			f: func(input *GasState) error {
 				return input.setGas(math.MaxInt64, 0)
@@ -95,12 +95,12 @@ func TestGasStatus(t *testing.T) {
 			input: &GasState{
 				GasLeft:  10000,
 				GasUsed:  0,
-				BTMValue: 0,
+				JTAValue: 0,
 			},
 			output: &GasState{
 				GasLeft:  10000,
 				GasUsed:  0,
-				BTMValue: 0,
+				JTAValue: 0,
 			},
 			f: func(input *GasState) error {
 				return input.updateUsage(-1)
@@ -111,12 +111,12 @@ func TestGasStatus(t *testing.T) {
 			input: &GasState{
 				GasLeft:  10000,
 				GasUsed:  0,
-				BTMValue: 0,
+				JTAValue: 0,
 			},
 			output: &GasState{
 				GasLeft:  9999,
 				GasUsed:  1,
-				BTMValue: 0,
+				JTAValue: 0,
 			},
 			f: func(input *GasState) error {
 				return input.updateUsage(9999)
@@ -127,12 +127,12 @@ func TestGasStatus(t *testing.T) {
 			input: &GasState{
 				GasLeft:  -10000,
 				GasUsed:  0,
-				BTMValue: 0,
+				JTAValue: 0,
 			},
 			output: &GasState{
 				GasLeft:  -10000,
 				GasUsed:  0,
-				BTMValue: 0,
+				JTAValue: 0,
 			},
 			f: func(input *GasState) error {
 				return input.updateUsage(math.MaxInt64)

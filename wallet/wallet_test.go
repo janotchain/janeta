@@ -156,8 +156,8 @@ func TestWalletUpdate(t *testing.T) {
 	}
 
 	utxos := []*account.UTXO{}
-	btmUtxo := mockUTXO(controlProg, consensus.JTAAssetID)
-	utxos = append(utxos, btmUtxo)
+	jtaUtxo := mockUTXO(controlProg, consensus.JTAAssetID)
+	utxos = append(utxos, jtaUtxo)
 	OtherUtxo := mockUTXO(controlProg, &asset.AssetID)
 	utxos = append(utxos, OtherUtxo)
 
@@ -298,8 +298,8 @@ func TestMemPoolTxQueryLoop(t *testing.T) {
 	}
 
 	utxos := []*account.UTXO{}
-	btmUtxo := mockUTXO(controlProg, consensus.JTAAssetID)
-	utxos = append(utxos, btmUtxo)
+	jtaUtxo := mockUTXO(controlProg, consensus.JTAAssetID)
+	utxos = append(utxos, jtaUtxo)
 	OtherUtxo := mockUTXO(controlProg, &asset.AssetID)
 	utxos = append(utxos, OtherUtxo)
 

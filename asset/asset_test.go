@@ -70,7 +70,7 @@ func TestDefineAsset(t *testing.T) {
 
 func TestDefineJtaAsset(t *testing.T) {
 	reg := mockNewRegistry(t)
-	_, err := reg.Define([]chainkd.XPub{testutil.TestXPub}, 1, nil, 0, consensus.BTMAlias, nil)
+	_, err := reg.Define([]chainkd.XPub{testutil.TestXPub}, 1, nil, 0, consensus.JTAAlias, nil)
 	if err == nil {
 		testutil.FatalErr(t, err)
 	}
